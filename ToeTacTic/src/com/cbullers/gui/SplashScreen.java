@@ -20,6 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import com.cbullers.config.Config;
+import com.cbullers.delegations.Delegator;
 
 public class SplashScreen extends JFrame {
 	
@@ -27,7 +28,7 @@ public class SplashScreen extends JFrame {
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	// The content
-	SplashScreenContent content = new SplashScreenContent();
+	SplashScreenContent content = new SplashScreenContent(this);
 	
 	// Reference from inside timers, etc
 	SplashScreen pThis = this;
@@ -145,10 +146,16 @@ class SplashScreenContent extends JPanel {
 	// Serial id
 	private static final long serialVersionUID = 1L;
 	
+	// To access the main pane
+	JFrame main;
+	
 	// Constructor
-	public SplashScreenContent() {
+	public SplashScreenContent(final JFrame main) {
 		// Move stuffs
 		this.setLayout(null);
+		
+		// Does that
+		this.main = main;
 		
 		// Set size
 		this.setBounds(0,0,400,200);
@@ -163,7 +170,7 @@ class SplashScreenContent extends JPanel {
 		add(welcome);
 		
 		// LINE
-		SplashScreenLine line = new SplashScreenLine(100, 20, 100);
+		final SplashScreenLine line = new SplashScreenLine(100, 20, 100);
 		//add(line);
 		
 		JButton debug = new JButton("TEST");
@@ -184,6 +191,26 @@ class SplashScreenContent extends JPanel {
 		
 		onePlayer.setBounds(10+75,65,100,100);
 		twoPlayer.setBounds(120+75,65,100,100);
+		
+		onePlayer.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Delegator.openOnePlayer();
+				main.dispose();
+			}
+			
+		});
+		
+		twoPlayer.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Delegator.openTwoPlayer();
+				main.dispose();
+			}
+			
+		});
 		
 		add(onePlayer);
 		add(twoPlayer);

@@ -9,8 +9,10 @@ public class Config {
 	 */
 	
 	// Splash screen
-	public static Color SPLASH_BACKGROUND = Color.BLUE;
+	public static Color SPLASH_BACKGROUND = Color.red;
 	
 	public static String APP_NAME = "ToeTacTic";
+	
+	public static int currentPlayer = 0; // 0 = x, 1 = o;
 	
 }
