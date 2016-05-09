@@ -54,7 +54,6 @@ public class SplashScreen extends JFrame {
 		content.setBackground(Config.SPLASH_BACKGROUND);
 		//setContentPane(content);
 		setBounds(screenSize.width/2-200,screenSize.height/2-100,400,200);
-		
 		setUndecorated(true);
 		//this.setBackground(Config.SPLASH_BACKGROUND);
 	
@@ -66,6 +65,9 @@ public class SplashScreen extends JFrame {
 		
 		// Cool fade in effect
 		fadeIn();
+		
+		// Add wining combos
+		initWinningCombos();
 
 		// Set the normal background
 		this.getContentPane().setBackground(Config.SPLASH_BACKGROUND);
@@ -95,6 +97,20 @@ public class SplashScreen extends JFrame {
 			}
 		};
 	}
+	
+	private void initWinningCombos() { // Each three is a line, x is the winning player, c is opposite player or blank space
+		
+		// winning combos
+		Config.WIN_COMBOS.add("x x x c c c c c c");
+		Config.WIN_COMBOS.add("c c c x x x c c c");
+		Config.WIN_COMBOS.add("c c c c c c x x x");
+		Config.WIN_COMBOS.add("x c c c x c c c x");
+		Config.WIN_COMBOS.add("c c x c x c x c c");
+		Config.WIN_COMBOS.add("x c c x c c x c c");
+		Config.WIN_COMBOS.add("c x c c x c c x c");
+		Config.WIN_COMBOS.add("c c x c c x c c x");
+		
+	} // could be more efficient, but its a small program so who cares...
 	
 	private void initFonts() {
 		

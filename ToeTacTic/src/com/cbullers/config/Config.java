@@ -1,6 +1,8 @@
 package com.cbullers.config;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Config {
 
@@ -14,5 +16,11 @@ public class Config {
 	public static String APP_NAME = "ToeTacTic";
 	
 	public static int currentPlayer = 0; // 0 = x, 1 = o;
+	
+	public static List<String> WIN_COMBOS = new ArrayList<String>();
+	
+	public static String currentBoard = "c c c c c c c c c"; // what the board looks like
+	
+	public static char winner = 'c';
 	
 }
