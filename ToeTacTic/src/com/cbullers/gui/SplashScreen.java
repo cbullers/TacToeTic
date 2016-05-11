@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -65,9 +66,6 @@ public class SplashScreen extends JFrame {
 		
 		// Cool fade in effect
 		fadeIn();
-		
-		// Add wining combos
-		initWinningCombos();
 
 		// Set the normal background
 		this.getContentPane().setBackground(Config.SPLASH_BACKGROUND);
@@ -98,19 +96,6 @@ public class SplashScreen extends JFrame {
 		};
 	}
 	
-	private void initWinningCombos() { // Each three is a line, x is the winning player, c is opposite player or blank space
-		
-		// winning combos
-		Config.WIN_COMBOS.add("x x x c c c c c c");
-		Config.WIN_COMBOS.add("c c c x x x c c c");
-		Config.WIN_COMBOS.add("c c c c c c x x x");
-		Config.WIN_COMBOS.add("x c c c x c c c x");
-		Config.WIN_COMBOS.add("c c x c x c x c c");
-		Config.WIN_COMBOS.add("x c c x c c x c c");
-		Config.WIN_COMBOS.add("c x c c x c c x c");
-		Config.WIN_COMBOS.add("c c x c c x c c x");
-		
-	} // could be more efficient, but its a small program so who cares...
 	
 	private void initFonts() {
 		
@@ -212,6 +197,12 @@ class SplashScreenContent extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				//TicUtil.askForPlayerPiece(); // Do they want to be X or O? Naught or Cross? fix later
+				Config.aiChar = (JOptionPane.showConfirmDialog(null, "Would you like to be X?") == JOptionPane.YES_OPTION) 
+						? 'o' : 'x';
+				Config.currentPlayer = (JOptionPane.showConfirmDialog(null, "Would you like to go first?") == JOptionPane.YES_OPTION) ?
+						((Config.aiChar == 'x') ? 1 : 0) : ((Config.aiChar == 'x') ? 0 : 1);
+				Config.singleplayer = true;
 				Delegator.openOnePlayer();
 				main.dispose();
 			}
@@ -222,6 +213,7 @@ class SplashScreenContent extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				Config.singleplayer = false;
 				Delegator.openTwoPlayer();
 				main.dispose();
 			}

@@ -28,16 +28,17 @@ public class TwoPlayer extends JFrame {
 		
 		this.setBounds(screenSize.width/2-300,screenSize.height/2-300,620,643);
 		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		TicButton spot1 = new TicButton(0,0,200,200, 0);
-		TicButton spot2 = new TicButton(202,0,200,200, 2);
-		TicButton spot3 = new TicButton(402,0,200,200, 4);
-		TicButton spot4 = new TicButton(0,202,200,200, 6);
-		TicButton spot5 = new TicButton(202,202,200,200, 8);
-		TicButton spot6 = new TicButton(402,202,200,200, 10);
-		TicButton spot7 = new TicButton(0,402,200,200, 12);
-		TicButton spot8 = new TicButton(202,402,200,200, 14);
-		TicButton spot9 = new TicButton(402,402,200,200, 16);
+		TicButton spot1 = new TicButton(0,0,200,200, 0, 0);
+		TicButton spot2 = new TicButton(202,0,200,200, 0, 1);
+		TicButton spot3 = new TicButton(402,0,200,200, 0, 2);
+		TicButton spot4 = new TicButton(0,202,200,200, 1, 0);
+		TicButton spot5 = new TicButton(202,202,200,200, 1, 1);
+		TicButton spot6 = new TicButton(402,202,200,200, 1, 2);
+		TicButton spot7 = new TicButton(0,402,200,200, 2, 0);
+		TicButton spot8 = new TicButton(202,402,200,200, 2, 1);
+		TicButton spot9 = new TicButton(402,402,200,200, 2, 2);
 		
 		buttons.add(spot1);
 		buttons.add(spot2);

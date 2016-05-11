@@ -11,16 +11,24 @@ public class Config {
 	 */
 	
 	// Splash screen
+	
 	public static Color SPLASH_BACKGROUND = Color.red;
 	
 	public static String APP_NAME = "ToeTacTic";
+	
+	// Other
 	
 	public static int currentPlayer = 0; // 0 = x, 1 = o;
 	
 	public static List<String> WIN_COMBOS = new ArrayList<String>();
 	
-	public static String currentBoard = "c c c c c c c c c"; // what the board looks like
+	public static char[][] currentBoard = {{'c','c','c'},{'c','c','c'},{'c','c','c'}};
 	
 	public static char winner = 'c';
+	
+	// Singleplayer specific stuff
+	public static boolean singleplayer;
+	
+	public static char aiChar;
 	
 }
