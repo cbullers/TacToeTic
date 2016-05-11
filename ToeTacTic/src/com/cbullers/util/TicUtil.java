@@ -71,16 +71,16 @@ public class TicUtil {
 	}
 	
 	// Debug purposes
-	public static void printBoard() {
-		for(char c : Config.currentBoard[0]) {
+	public static void printBoard(char[][] board) {
+		for(char c : board[0]) {
 			System.out.print(c+",");
 		}
 		System.out.println();
-		for(char c : Config.currentBoard[1]) {
+		for(char c : board[1]) {
 			System.out.print(c+",");
 		}
 		System.out.println();
-		for(char c : Config.currentBoard[2]) {
+		for(char c : board[2]) {
 			System.out.print(c+",");
 		}
 		System.out.println();
@@ -101,6 +101,14 @@ public class TicUtil {
 		}
 		
 		return ret;
+	}
+	
+	public static boolean isOccupied(int row, int column) {
+		if(Config.currentBoard[row][column] == 'c') {
+			return false;
+		}else{
+			return true;
+		}
 	}
 	
 }

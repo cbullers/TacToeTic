@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 
 import com.cbullers.config.Config;
 import com.cbullers.delegations.Delegator;
+import com.cbullers.util.Ai;
 
 public class TicButton extends JButton {
 
@@ -75,6 +76,34 @@ public class TicButton extends JButton {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
+					
+					
+					// Check it bommommmmmmmmomm slkdaskfjjk
+					if(pThis.isOccupied) return; // Just until the ai works
+					
+					char playerChar = ((Config.aiChar == 'x') ? 'o' : 'x');
+					
+					
+					Config.currentPlayer = (Config.currentPlayer == 0) ? 1 : 0;
+					pThis.MOVE = (Config.currentPlayer == 0) ? 'o' : 'x';
+					
+					
+					// Set the character representation of the board
+					Config.currentBoard[pThis.row][pThis.column] = pThis.MOVE;
+					
+					// Sets the button as X or an O
+					pThis.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(pThis.MOVE+".png")));
+					pThis.isOccupied = true;
+					
+					// Run the ai
+					if(Config.currentPlayer == 0 && playerChar == 'o') {
+						Ai.doLogic();
+						Config.isPlayersTurn = false;
+					}else if(Config.currentPlayer == 1 && playerChar == 'x') {
+						Ai.doLogic();
+						Config.isPlayersTurn = false;
+					}
+					
 					
 				}
 				

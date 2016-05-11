@@ -1,8 +1,6 @@
 package com.cbullers.config;
 
 import java.awt.Color;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Config {
 
@@ -18,9 +16,7 @@ public class Config {
 	
 	// Other
 	
-	public static int currentPlayer = 0; // 0 = x, 1 = o;
-	
-	public static List<String> WIN_COMBOS = new ArrayList<String>();
+	public static int currentPlayer = 0; // 0 = x, 1 = o
 	
 	public static char[][] currentBoard = {{'c','c','c'},{'c','c','c'},{'c','c','c'}};
 	
@@ -30,5 +26,7 @@ public class Config {
 	public static boolean singleplayer;
 	
 	public static char aiChar;
+	
+	public static boolean isPlayersTurn;
 	
 }
